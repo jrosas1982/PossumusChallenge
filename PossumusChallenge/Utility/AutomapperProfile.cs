@@ -9,6 +9,7 @@ namespace API.PossumusChallenge.Utility
         public AutoMapperProfile()
         {
             CreateMap<CinemaDto, Cinema>().ReverseMap();
+            CreateMap<CinemasDto, Cinema>().ReverseMap();
             CreateMap<CinemaRoomDto, CinemaRoom>().ReverseMap();
         }
     }

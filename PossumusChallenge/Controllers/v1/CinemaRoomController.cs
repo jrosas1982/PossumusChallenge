@@ -24,16 +24,16 @@ namespace API.PossumusChallenge.Controllers.v1
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("GetCinemaRooms")]
         [SwaggerOperation("Retorna todos los cines")]
         public async Task<IEnumerable<CinemaRoom>> Get()
         {
             var result = await _cinemaRoomService.GetCinemasRooms();
             return result.Data;
         }
-        [HttpPost]
+        [HttpPost("CreateCinemaRoom")]
         [SwaggerOperation("Crea una sala para el cine especificado según su cinemaId ")]
-        public async Task<IActionResult> CreateCinema([FromBody] CinemaRoomDto cinema)
+        public async Task<IActionResult> CreateCinemaRoom([FromBody] CinemaRoomDto cinema)
         {
             var cine = _mapper.Map<CinemaRoom>(cinema);
             var result = await _cinemaRoomService.CreateCinemaRoom(cine);
@@ -43,7 +43,7 @@ namespace API.PossumusChallenge.Controllers.v1
         }
         [HttpPut("{roomId:int}")]
         [SwaggerOperation("Actualiza la sala del cine especificado por el parametro roomId")]
-        public async Task<IActionResult> UpdateCinema([FromBody] CinemaRoomDto cinema, int roomId)
+        public async Task<IActionResult> UpdateCinemaRoom([FromBody] CinemaRoomDto cinema, int roomId)
         {
             var cine = _mapper.Map<CinemaRoom>(cinema);
             cine.Id = roomId;
@@ -54,7 +54,7 @@ namespace API.PossumusChallenge.Controllers.v1
         }
         [HttpDelete("{roomId:int}")]
         [SwaggerOperation("Elimina la sala del cine especificado por el parametro roomId")]
-        public async Task<IActionResult> DeleteCinema(int roomId)
+        public async Task<IActionResult> DeleteCinemaRoom(int roomId)
         {
             var result = await _cinemaRoomService.DeleteCinemaRoom(roomId);
             if (result.Data)

@@ -8,7 +8,6 @@ namespace API.PossumusChallenge.Services
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<ApiKeyAuth>();
-
             return services;
         }
     }

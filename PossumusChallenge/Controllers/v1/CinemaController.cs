@@ -24,12 +24,13 @@ namespace API.PossumusChallenge.Controllers.v1
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("GetCinemas")]
         [SwaggerOperation("Retorna todos los cines")]
-        public async Task<IEnumerable<Cinema>> Get()
+        public async Task<IEnumerable<CinemasDto>> Get()
         {
             var result = await _cinemaService.GetCinemas();
-            return result.Data;
+            var cines = _mapper.Map<IEnumerable<CinemasDto>>(result.Data);
+            return (IEnumerable<CinemasDto>)cines;
         } 
         [HttpGet("{cinemaId:int}")]
         [SwaggerOperation("Retorna todos las salas del cine especificado por parametro cinemaId")]
@@ -38,7 +39,7 @@ namespace API.PossumusChallenge.Controllers.v1
             var result = await _cinemaService.GetCinemasRoomsByCinema(cinemaId);
             return result.Data;
         }
-        [HttpPost]
+        [HttpPost("CreateCinema")]
         [SwaggerOperation("Crea un cine")]
         public async Task<IActionResult> CreateCinema([FromBody] CinemaDto cinema) {
             var cine = _mapper.Map<Cinema>(cinema);

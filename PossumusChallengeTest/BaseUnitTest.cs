@@ -20,13 +20,11 @@ namespace PossumusChallengeTest
             return dbContext;
         }
         protected IMapper ConfigureAutoMapper() {
-
             var config = new MapperConfiguration(options =>
             {
                 options.AddProfile(new AutoMapperProfile());
             });
             return config.CreateMapper();
         }
-
     }
 }
