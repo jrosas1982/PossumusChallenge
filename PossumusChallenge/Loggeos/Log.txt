@@ -1,0 +1,25 @@
+2022-10-18 00:32:192022-10-18 00:32:192022-10-18 00:32:192022-10-18 00:32:192022-10-18 00:32:192022-10-18 00:32:192022-10-18 00:32:192022-10-18 00:32:192022-10-18 00:32:202022-10-18 00:32:202022-10-18 00:32:202022-10-18 00:32:292022-10-18 00:32:292022-10-18 00:32:292022-10-18 00:32:302022-10-18 00:32:332022-10-18 00:32:332022-10-18 00:32:332022-10-18 00:32:332022-10-18 00:32:332022-10-18 00:32:332022-10-18 00:36:14 Application started. Press Ctrl+C to shut down.
+2022-10-18 00:36:14 Hosting environment: Development
+2022-10-18 00:36:14 Content root path: C:\Users\Casa\Documents\Proyectos Web\Challenges\Possumus\PossumusChallenge\PossumusChallenge
+2022-10-18 00:36:14 Request starting HTTP/1.1 GET http://localhost:40109/swagger/index.html  
+2022-10-18 00:36:14 Request finished in 318.9965ms 200 text/html;charset=utf-8
+2022-10-18 00:36:14 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 00:36:14 Request finished in 19.391ms 200 application/javascript; charset=utf-8
+2022-10-18 00:36:14 Request starting HTTP/1.1 GET http://localhost:40109/_vs/browserLink  
+2022-10-18 00:36:14 Request finished in 34.9621ms 200 text/javascript; charset=UTF-8
+2022-10-18 00:36:14 Request starting HTTP/1.1 GET http://localhost:40109/swagger/v1/swagger.json  
+2022-10-18 00:36:15 Request finished in 227.6083ms 200 application/json;charset=utf-8
+2022-10-18 00:36:21 Request starting HTTP/1.1 GET http://localhost:40109/v1/Empleado/GetCandidatos  
+2022-10-18 00:36:21 Executing endpoint 'API.PossumusChallenge.Controllers.v1.EmpleadoController.Get (API.PossumusChallenge)'
+2022-10-18 00:36:21 Route matched with {action = "Get", controller = "Empleado"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[Core.Application.Dto.CandidatoDto]] Get() on controller API.PossumusChallenge.Controllers.v1.EmpleadoController (API.PossumusChallenge).
+2022-10-18 00:36:21 Entity Framework Core 3.1.30 initialized 'ApplicationDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-10-18 00:36:24 Executed DbCommand (265ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CandidatoId], [c].[Apellido], [c].[Email], [c].[FecNacimiento], [c].[Nombre], [c].[Teléfono], [e].[Id], [e].[CandidatoId], [e].[NombreEmpresa], [e].[Periodo]
+FROM [Candidatos] AS [c]
+LEFT JOIN [Empleos] AS [e] ON [c].[CandidatoId] = [e].[CandidatoId]
+ORDER BY [c].[CandidatoId] DESC, [e].[Id]
+2022-10-18 00:36:24 Obteniendo datos de GetCandidatos
+2022-10-18 00:36:24 Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Core.Application.Dto.CandidatoDto, Core.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-18 00:36:24 Executed action API.PossumusChallenge.Controllers.v1.EmpleadoController.Get (API.PossumusChallenge) in 3242.6136ms
+2022-10-18 00:36:24 Executed endpoint 'API.PossumusChallenge.Controllers.v1.EmpleadoController.Get (API.PossumusChallenge)'
+2022-10-18 00:36:24 Request finished in 3338.4432ms 200 application/json; charset=utf-8
