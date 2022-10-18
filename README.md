@@ -1,10 +1,10 @@
 # PossumusChallenge
 El mismo consiste en una api con un CRUD, simple, con 2 tablas con relación.
 
-Propuesta de ejercicio - API de RRHH
-Utilizando las siguientes herramientas:
-• .NET Framework 4.5 o superior / .NetCore 2.0 o superior
-• MSSQL
+##Propuesta de ejercicio - API de RRHH
+###Utilizando las siguientes herramientas:
+#)• .NET Framework 4.5 o superior / .NetCore 2.0 o superior
+#)• MSSQL
 • EntityFramework y Migraciones
 • Swagger
 Desarrollar una API Rest que permita gestionar las siguientes entidades:
