@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Serilog;
 using System;
+using System.Linq;
 
 namespace API.PossumusChallenge.Controllers.v1
 {
@@ -36,7 +37,7 @@ namespace API.PossumusChallenge.Controllers.v1
             try
             {
                 var result = await _candidatoService.GetCandidatos();
-                var empleados = _mapper.Map<IEnumerable<CandidatoDto>>(result.Data);
+                var empleados = _mapper.Map<IEnumerable<CandidatoActualizacionDto>>(result.Data);
                 return Ok(empleados);
             }
             catch (Exception ex)
@@ -59,7 +60,7 @@ namespace API.PossumusChallenge.Controllers.v1
                     Log.Warning($"No hay candidato con Id: {Id}");
                     return NotFound($"No hay candidato con Id: {Id}");
                 }
-                var empleados = _mapper.Map<CandidatoDto>(result.Data);
+                var empleados = _mapper.Map<CandidatoActualizacionDto>(result.Data);
                 return Ok(empleados);
             }
             catch (Exception ex)
@@ -69,9 +70,9 @@ namespace API.PossumusChallenge.Controllers.v1
             }
     
         }
-        [HttpPost("CrearEmpleado")]
+        [HttpPost("AddEmpleado")]
         [SwaggerOperation("Crea un Empleado")]
-        public async Task<IActionResult> CrearEmpleado([FromBody] CandidatoCreacionDto candidato)
+        public async Task<IActionResult> AddEmpleado([FromBody] CandidatoCreacionDto candidato)
         {
             Log.Information("Intentando CrearEmpleado");
             try
@@ -154,7 +155,7 @@ namespace API.PossumusChallenge.Controllers.v1
         }
         [HttpDelete("DeleteEmpleado/{Id:int}")]
         [SwaggerOperation("Elimina el empleado especificado por el parametro Id")]
-        public async Task<IActionResult> DeleteCandidato(int Id)
+        public async Task<IActionResult> DeleteEmpleado(int Id)
         {
             Log.Information(messageTemplate: "Intentando DeleteCandidato");
             try
@@ -172,9 +173,9 @@ namespace API.PossumusChallenge.Controllers.v1
           }
         //------------------------------------------------------------------------------------------
         //Se agrega enpoint en el mismo controlador de Empleado solo por practicidad    
-        [HttpPost("AgregarEmpleoAlEmpleado/{empleadoId:int}")]
+        [HttpPost("AddEmpleoAlEmpleado/{empleadoId:int}")]
         [SwaggerOperation("Agrega empleo/s al empleado especificado por parametro empleadoId")]
-        public async Task<IActionResult> AgregarEmpleoAlEmpleado([FromBody] IEnumerable<EmpleoDto> empleoDto , int empleadoId)
+        public async Task<IActionResult> AddEmpleoAlEmpleado([FromBody] IEnumerable<EmpleoDto> empleoDto , int empleadoId)
         {
             Log.Information(messageTemplate: "Intentando AgregarEmpleoAlEmpleado");
             try
@@ -191,6 +192,30 @@ namespace API.PossumusChallenge.Controllers.v1
                 return BadRequest($"Error al AgregarEmpleoAlEmpleado el empleado : {ex.Message} ");
             }
         }
-    
+       
+        [HttpDelete("DeleteEmpleoAlEmpleado/{empleoId:int}/{empleadoId:int}")]
+        [SwaggerOperation("Agrega empleo/s al empleado especificado por parametro empleadoId")]
+        public async Task<IActionResult> DeleteEmpleoAlEmpleado(int empleoId , int empleadoId)
+        {
+            Log.Information(messageTemplate: "Intentando DeleteEmpleoAlEmpleado");
+            try
+            {
+                var empleado = await _candidatoService.GetCandidatoById(empleadoId);
+                if (empleado.Data.Empleos.Where(x => x.Id == empleoId).FirstOrDefault() == null) {
+                    Log.Warning(messageTemplate: "No coinciden el empleo con el Empleado");
+                    return NotFound($"No coinciden el empleo con el Empleado");
+                }
+                var result = await _empleoService.EliminarEmpleosDelCandidato(empleoId);
+                if (result.Data)
+                    return Ok();
+                return BadRequest($"Error al eliminar el empleo al empleado con msj : {result.Message} ");
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Error DeleteEmpleoAlEmpleado con msj: {ex.Message} ");
+                return BadRequest($"Error al eliminar el empleo : {ex.Message} ");
+            }
+        }
+
     }
 }

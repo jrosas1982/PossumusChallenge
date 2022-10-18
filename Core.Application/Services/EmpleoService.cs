@@ -2,8 +2,10 @@
 using Core.Domain.AggregatesModel.RRHH;
 using Core.Domain.SeedWork;
 using Core.Infraestructure;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,6 +64,28 @@ namespace Core.Application.Services
                 return response;
             }
          
+        }
+
+        public async Task<Response<bool>> EliminarEmpleosDelCandidato(int empleoId)
+        {
+            var response = new Response<bool>();
+            try
+            {
+                var empleoEliminar = await _db.Empleos.Where( x => x.Id == empleoId).FirstOrDefaultAsync();
+                if (empleoEliminar != null) {
+                    _db.Empleos.Remove(empleoEliminar);
+                    await _db.SaveChangesAsync();
+                    response.Data = true;
+                    response.IsSuccess = true;
+                }
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Data = false;
+                response.Message = $"Se produjo un error en EliminarEmpleosDelCandidato con msj :  {ex.Message}";
+                return response;
+            }
         }
     }
 }

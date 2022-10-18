@@ -11,5 +11,6 @@ namespace Core.Application.Interfaces
     {
         Task<Response<bool>> CrearEmpleosAlCandidato(IEnumerable<Empleo> empleos , int empleadoId);
         Task<Response<bool>> ActualizarEmpleosDelCandidato(IEnumerable<Empleo> empleos);
+        Task<Response<bool>> EliminarEmpleosDelCandidato(int empleoId);
     }
 }
