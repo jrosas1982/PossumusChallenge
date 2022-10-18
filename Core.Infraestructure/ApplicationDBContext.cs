@@ -25,6 +25,10 @@ namespace Core.Infraestructure
         public DbSet<Candidato> Candidatos { get; set; }
         public DbSet<Empleo> Empleos { get; set; }
 
+        //No usado en esta implementación
+
+        //sobreescribe SaveChangesAsync para dejar track de auditoria
+
         //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         //{
         //    this.ChangeTracker.DetectChanges();

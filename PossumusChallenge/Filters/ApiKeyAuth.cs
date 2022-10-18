@@ -7,6 +7,7 @@ using System.Security.Claims;
 
 namespace API.PossumusChallenge.Filters
 {
+    //No usado en esta implementación
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class ApiKeyAuth : Attribute, IAuthorizationFilter
     {

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Core.Domain.SeedWork
 {
+    //No usado en esta implementación
     public class EntityBase
     {
         public EntityBase()

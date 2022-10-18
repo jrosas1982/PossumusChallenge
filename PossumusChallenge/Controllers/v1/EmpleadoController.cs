@@ -14,7 +14,7 @@ using System;
 namespace API.PossumusChallenge.Controllers.v1
 {
     [ApiController]
-    // [ServiceFilter(typeof(ApiKeyAuth))]
+    // [ServiceFilter(typeof(ApiKeyAuth))] // No usado para esta implementación
     [Route("v1/[Controller]")]
     public class EmpleadoController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace API.PossumusChallenge.Controllers.v1
             _candidatoService = candidatoService;
             _empleoService = empleoService;
         }
-        [HttpGet("GetCandidatos")]
+        [HttpGet("GetEmpleados")]
         [SwaggerOperation("Retorna todos los candidatos")]
         public async Task<IActionResult> Get()
         {
@@ -46,9 +46,9 @@ namespace API.PossumusChallenge.Controllers.v1
             }
         
         }
-        [HttpGet("GetCandidatoById/{Id:int}")]
+        [HttpGet("GetEmpleadoById/{Id:int}")]
         [SwaggerOperation("Retorna un candidato según el Id especificado")]
-        public async Task<IActionResult> GetCandidatoById(int Id)
+        public async Task<IActionResult> GetEmpleadoById(int Id)
         {
             Log.Information("Obteniendo datos de GetCandidatos");
             try
@@ -90,9 +90,9 @@ namespace API.PossumusChallenge.Controllers.v1
             }
      
         }
-        [HttpPut("UpdateCandidato/{Id:int}")]
+        [HttpPut("UpdateEmpleado/{Id:int}")]
         [SwaggerOperation("Actualiza el empleado especificado por el parametro candidatoId")]
-        public async Task<IActionResult> UpdateCandidato([FromBody] CandidatoBaseDto candidato, int Id)
+        public async Task<IActionResult> UpdateEmpleado([FromBody] CandidatoBaseDto candidato, int Id)
         {
             Log.Information("Intentando UpdateCandidato");
             try
@@ -152,27 +152,44 @@ namespace API.PossumusChallenge.Controllers.v1
             }
 
         }
-        [HttpDelete("DeleteCandidato/{Id:int}")]
+        [HttpDelete("DeleteEmpleado/{Id:int}")]
         [SwaggerOperation("Elimina el empleado especificado por el parametro Id")]
         public async Task<IActionResult> DeleteCandidato(int Id)
         {
-            var result = await _candidatoService.DeleteCandidato(Id);
-            if (result.Data)
-                return Ok();
-            return BadRequest($"Error al eliminar el empleado : {result.Message} ");
-        }
-
+            Log.Information(messageTemplate: "Intentando DeleteCandidato");
+            try
+            {
+                var result = await _candidatoService.DeleteCandidato(Id);
+                if (result.Data)
+                    return Ok();
+                return BadRequest($"Error al eliminar el empleado : {result.Message} ");
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Error DeleteCandidato con msj: {ex.Message} ");
+                return BadRequest($"Error al eliminar el empleado : {ex.Message} ");
+            }
+          }
         //------------------------------------------------------------------------------------------
-
+        //Se agrega enpoint en el mismo controlador de Empleado solo por practicidad    
         [HttpPost("AgregarEmpleoAlEmpleado/{empleadoId:int}")]
         [SwaggerOperation("Agrega empleo/s al empleado especificado por parametro empleadoId")]
         public async Task<IActionResult> AgregarEmpleoAlEmpleado([FromBody] IEnumerable<EmpleoDto> empleoDto , int empleadoId)
         {
-            var empleado = _mapper.Map<IEnumerable<Empleo>>(empleoDto);
-            var result = await _empleoService.CrearEmpleosAlCandidato(empleado , empleadoId);
-            if (result.Data)
-                return Ok();
-            return BadRequest($"Error al Agregar el empleo al empleado con msj : {result.Message} ");
+            Log.Information(messageTemplate: "Intentando AgregarEmpleoAlEmpleado");
+            try
+            {
+                var empleado = _mapper.Map<IEnumerable<Empleo>>(empleoDto);
+                var result = await _empleoService.CrearEmpleosAlCandidato(empleado, empleadoId);
+                if (result.Data)
+                    return Ok();
+                return BadRequest($"Error al Agregar el empleo al empleado con msj : {result.Message} ");
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Error AgregarEmpleoAlEmpleado con msj: {ex.Message} ");
+                return BadRequest($"Error al AgregarEmpleoAlEmpleado el empleado : {ex.Message} ");
+            }
         }
     
     }

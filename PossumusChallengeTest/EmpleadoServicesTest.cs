@@ -11,6 +11,9 @@ namespace PossumusChallengeTest
     [TestClass]
     public class EmpleadoServicesTest : BaseUnitTest
     {
+        //Se agregan algunos casos de test (HappyPath) solo a modo de ejemplo de implementación de MSTest,
+        //no da cobertura total a los casos de uso del challenge 
+
         private string dbName;
 
         [TestInitialize]

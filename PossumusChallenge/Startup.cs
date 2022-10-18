@@ -37,29 +37,30 @@ namespace PossumusChallenge
                 {
                     Version = "v1",
                     Title = "PossumusChallenge",
-                    Description = "CRUD de Productos y Categorias"
+                    Description = "CRUD de Candidatos y Empleos"
                 });
-                config.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                {
-                    {
-                      new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "ApiKey"
-                            },
-                        },
-                        new List<string>()
-                    }
-                });
-                config.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
-                {
-                    Description = "Ingresar tu ApiKey de integracion:",
-                    Name = ApiKeyAuth.ApiKeyHeaderName,
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
-                });
+                //No usado en esta implementación
+                //config.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                //{
+                //    {
+                //      new OpenApiSecurityScheme
+                //        {
+                //            Reference = new OpenApiReference
+                //            {
+                //                Type = ReferenceType.SecurityScheme,
+                //                Id = "ApiKey"
+                //            },
+                //        },
+                //        new List<string>()
+                //    }
+                //});
+                //config.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
+                //{
+                //    Description = "Ingresar tu ApiKey de integracion:",
+                //    Name = ApiKeyAuth.ApiKeyHeaderName,
+                //    In = ParameterLocation.Header,
+                //    Type = SecuritySchemeType.ApiKey
+                //});
             });
             services.AddServices();
             services.AddControllers().AddNewtonsoftJson(x =>

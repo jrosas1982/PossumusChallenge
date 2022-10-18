@@ -7,6 +7,7 @@ using System.Text;
 
 namespace Core.Domain.AggregatesModel.User
 {
+    //No usado en esta implementación
     public class UserAPI : EntityBase
     {
         public UserAPI()

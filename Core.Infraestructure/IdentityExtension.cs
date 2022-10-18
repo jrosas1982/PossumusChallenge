@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Core.Infraestructure
 {
+    //No usado en esta implementación
     public static  class IdentityExtension
     {
         public static string GetUsername(this IHttpContextAccessor httpContext)
