@@ -37,7 +37,7 @@ namespace PossumusChallenge
                 {
                     Version = "v1",
                     Title = "PossumusChallenge",
-                    Description = "CRUD de Candidatos y Empleos"
+                    Description = "<h2> CRUD de Candidatos y Empleos</h2> </br> <h3> Podes encontrar todo el código fuente aquí <a href='https://github.com/jrosas1982/PossumusChallenge'> GitHub</a> <h3>"
                 });
                 //No usado en esta implementación
                 //config.AddSecurityRequirement(new OpenApiSecurityRequirement()

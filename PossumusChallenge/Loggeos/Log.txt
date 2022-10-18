@@ -266,3 +266,62 @@ ORDER BY [t].[CandidatoId], [e].[Id]
 2022-10-18 01:58:38 Executed action API.PossumusChallenge.Controllers.v1.EmpleadoController.DeleteEmpleoAlEmpleado (API.PossumusChallenge) in 8601.1421ms
 2022-10-18 01:58:38 Executed endpoint 'API.PossumusChallenge.Controllers.v1.EmpleadoController.DeleteEmpleoAlEmpleado (API.PossumusChallenge)'
 2022-10-18 01:58:38 Request finished in 8605.0832ms 400 text/plain; charset=utf-8
+2022-10-18 02:22:35 Application started. Press Ctrl+C to shut down.
+2022-10-18 02:22:35 Hosting environment: Development
+2022-10-18 02:22:35 Content root path: C:\Users\Casa\Documents\Proyectos Web\Challenges\Possumus\PossumusChallenge\PossumusChallenge
+2022-10-18 02:22:35 Request starting HTTP/1.1 GET http://localhost:40109/swagger/index.html  
+2022-10-18 02:22:36 Request finished in 252.5495ms 200 text/html;charset=utf-8
+2022-10-18 02:22:36 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 02:22:36 Request finished in 17.0815ms 200 application/javascript; charset=utf-8
+2022-10-18 02:22:36 Request starting HTTP/1.1 GET http://localhost:40109/_vs/browserLink  
+2022-10-18 02:22:36 Request finished in 36.6617ms 200 text/javascript; charset=UTF-8
+2022-10-18 02:22:36 Request starting HTTP/1.1 GET http://localhost:40109/swagger/v1/swagger.json  
+2022-10-18 02:22:36 Request finished in 224.7579ms 200 application/json;charset=utf-8
+2022-10-18 02:23:52 Application started. Press Ctrl+C to shut down.
+2022-10-18 02:23:52 Hosting environment: Development
+2022-10-18 02:23:52 Content root path: C:\Users\Casa\Documents\Proyectos Web\Challenges\Possumus\PossumusChallenge\PossumusChallenge
+2022-10-18 02:23:52 Request starting HTTP/1.1 GET http://localhost:40109/swagger/index.html  
+2022-10-18 02:23:53 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 02:23:53 Request finished in 285.7387ms 200 text/html;charset=utf-8
+2022-10-18 02:23:53 Request finished in 3.7689ms 200 application/javascript; charset=utf-8
+2022-10-18 02:23:53 Request starting HTTP/1.1 GET http://localhost:40109/_vs/browserLink  
+2022-10-18 02:23:53 Request finished in 33.2134ms 200 text/javascript; charset=UTF-8
+2022-10-18 02:23:53 Request starting HTTP/1.1 GET http://localhost:40109/swagger/v1/swagger.json  
+2022-10-18 02:23:53 Request finished in 312.1822ms 200 application/json;charset=utf-8
+2022-10-18 02:25:03 Application started. Press Ctrl+C to shut down.
+2022-10-18 02:25:03 Hosting environment: Development
+2022-10-18 02:25:03 Content root path: C:\Users\Casa\Documents\Proyectos Web\Challenges\Possumus\PossumusChallenge\PossumusChallenge
+2022-10-18 02:25:03 Request starting HTTP/1.1 GET http://localhost:40109/swagger/index.html  
+2022-10-18 02:25:03 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 02:25:03 Request finished in 307.2089ms 200 text/html;charset=utf-8
+2022-10-18 02:25:03 Request finished in 15.5155ms 200 application/javascript; charset=utf-8
+2022-10-18 02:25:03 Request starting HTTP/1.1 GET http://localhost:40109/_vs/browserLink  
+2022-10-18 02:25:03 Request finished in 34.7216ms 200 text/javascript; charset=UTF-8
+2022-10-18 02:25:03 Request starting HTTP/1.1 GET http://localhost:40109/swagger/v1/swagger.json  
+2022-10-18 02:25:04 Request finished in 225.9112ms 200 application/json;charset=utf-8
+2022-10-18 02:25:09 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 02:25:09 Request finished in 12.8183ms 200 application/javascript; charset=utf-8
+2022-10-18 02:26:17 Application started. Press Ctrl+C to shut down.
+2022-10-18 02:26:17 Hosting environment: Development
+2022-10-18 02:26:17 Content root path: C:\Users\Casa\Documents\Proyectos Web\Challenges\Possumus\PossumusChallenge\PossumusChallenge
+2022-10-18 02:26:17 Request starting HTTP/1.1 GET http://localhost:40109/swagger/index.html  
+2022-10-18 02:26:17 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 02:26:17 Request finished in 248.3878ms 200 text/html;charset=utf-8
+2022-10-18 02:26:17 Request finished in 16.7295ms 200 application/javascript; charset=utf-8
+2022-10-18 02:26:17 Request starting HTTP/1.1 GET http://localhost:40109/_vs/browserLink  
+2022-10-18 02:26:17 Request finished in 33.978ms 200 text/javascript; charset=UTF-8
+2022-10-18 02:26:17 Request starting HTTP/1.1 GET http://localhost:40109/swagger/v1/swagger.json  
+2022-10-18 02:26:18 Request finished in 201.477ms 200 application/json;charset=utf-8
+2022-10-18 02:27:44 Application started. Press Ctrl+C to shut down.
+2022-10-18 02:27:44 Hosting environment: Development
+2022-10-18 02:27:44 Content root path: C:\Users\Casa\Documents\Proyectos Web\Challenges\Possumus\PossumusChallenge\PossumusChallenge
+2022-10-18 02:27:44 Request starting HTTP/1.1 GET http://localhost:40109/swagger/index.html  
+2022-10-18 02:27:44 Request finished in 304.5039ms 200 text/html;charset=utf-8
+2022-10-18 02:27:44 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 02:27:44 Request finished in 17.2237ms 200 application/javascript; charset=utf-8
+2022-10-18 02:27:44 Request starting HTTP/1.1 GET http://localhost:40109/_vs/browserLink  
+2022-10-18 02:27:44 Request finished in 42.3636ms 200 text/javascript; charset=UTF-8
+2022-10-18 02:27:45 Request starting HTTP/1.1 GET http://localhost:40109/swagger/v1/swagger.json  
+2022-10-18 02:27:45 Request finished in 213.035ms 200 application/json;charset=utf-8
+2022-10-18 02:27:52 Request starting HTTP/1.1 GET http://localhost:40109/_framework/aspnetcore-browser-refresh.js  
+2022-10-18 02:27:52 Request finished in 2.6284ms 200 application/javascript; charset=utf-8
