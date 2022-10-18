@@ -11,9 +11,6 @@ namespace Core.Infraestructure
     {
         public static void AddCoreServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<ICinemaService, CinemaService>();
-            serviceCollection.AddScoped<ICinemaRoomService, CinemaRoomService>();
-           //----------------------------------------------------------------------
             serviceCollection.AddScoped<ICandidatoService, CandidatoService>();
             serviceCollection.AddScoped<IEmpleoService, EmpleoService>();
         }

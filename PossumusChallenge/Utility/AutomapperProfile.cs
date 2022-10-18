@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Core.Application.Dto;
-using Core.Domain.AggregatesModel.Cinema;
 using Core.Domain.AggregatesModel.RRHH;
 
 namespace API.PossumusChallenge.Utility
@@ -9,10 +8,6 @@ namespace API.PossumusChallenge.Utility
     {
         public AutoMapperProfile()
         {
-            CreateMap<CinemaDto, Cinema>().ReverseMap();
-            CreateMap<CinemasDto, Cinema>().ReverseMap();
-            CreateMap<CinemaRoomDto, CinemaRoom>().ReverseMap();
-           //----------------------------------------------------
             CreateMap<CandidatoActualizacionDto, Candidato>().ReverseMap();
             CreateMap<CandidatoCreacionDto, Candidato>().ReverseMap();
             CreateMap<CandidatoDto, Candidato>().ReverseMap();

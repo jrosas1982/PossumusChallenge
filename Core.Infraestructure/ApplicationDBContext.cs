@@ -1,5 +1,4 @@
-﻿using Core.Domain.AggregatesModel.Cinema;
-using Core.Domain.AggregatesModel.RRHH;
+﻿using Core.Domain.AggregatesModel.RRHH;
 using Core.Domain.AggregatesModel.User;
 using Core.Domain.SeedWork;
 using Microsoft.AspNetCore.Http;
@@ -22,43 +21,40 @@ namespace Core.Infraestructure
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public DbSet<Cinema> Cinemas { get; set; }
-        public DbSet<CinemaRoom> CinemaRooms { get; set; } 
-        public DbSet<UserAPI> Users { get; set; }
-       
+        public DbSet<UserAPI> Users { get; set; }       
         public DbSet<Candidato> Candidatos { get; set; }
         public DbSet<Empleo> Empleos { get; set; }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            this.ChangeTracker.DetectChanges();
-            var currentUsername = _httpContextAccessor.GetUsername();
+        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        //{
+        //    this.ChangeTracker.DetectChanges();
+        //    var currentUsername = _httpContextAccessor.GetUsername();
 
-            var added = this.ChangeTracker.Entries()
-                        .Where(t => t.Entity is EntityBase && t.State == EntityState.Added)
-                        .Select(t => t.Entity)
-                        .ToArray();
+        //    var added = this.ChangeTracker.Entries()
+        //                .Where(t => t.Entity is EntityBase && t.State == EntityState.Added)
+        //                .Select(t => t.Entity)
+        //                .ToArray();
 
-            foreach (var entity in added)
-            {
-                var baseEntity = entity as EntityBase;
-                baseEntity.CreationDate = DateTime.Now;
-                baseEntity.CreatedBy = currentUsername;
-            }
+        //    foreach (var entity in added)
+        //    {
+        //        var baseEntity = entity as EntityBase;
+        //        baseEntity.CreationDate = DateTime.Now;
+        //        baseEntity.CreatedBy = currentUsername;
+        //    }
 
-            var modified = this.ChangeTracker.Entries()
-                        .Where(t => t.Entity is EntityBase && t.State == EntityState.Modified)
-                        .Select(t => t.Entity)
-                        .ToArray();
+        //    var modified = this.ChangeTracker.Entries()
+        //                .Where(t => t.Entity is EntityBase && t.State == EntityState.Modified)
+        //                .Select(t => t.Entity)
+        //                .ToArray();
 
-            foreach (var entity in modified)
-            {
-                var track = entity as EntityBase;
-                track.ModificationDate = DateTime.Now;
-                track.ModifiedBy = currentUsername;
-            }
+        //    foreach (var entity in modified)
+        //    {
+        //        var track = entity as EntityBase;
+        //        track.ModificationDate = DateTime.Now;
+        //        track.ModifiedBy = currentUsername;
+        //    }
 
-            return base.SaveChangesAsync(cancellationToken);
-        }
+        //    return base.SaveChangesAsync(cancellationToken);
+        //}
     }
 }
