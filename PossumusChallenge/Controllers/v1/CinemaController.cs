@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace API.PossumusChallenge.Controllers.v1
 {
     [ApiController]
-    [ServiceFilter(typeof(ApiKeyAuth))]
+   // [ServiceFilter(typeof(ApiKeyAuth))]
     [Route("v1/[Controller]")]
     public class CinemaController : ControllerBase
     {

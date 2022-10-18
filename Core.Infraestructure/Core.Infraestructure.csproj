@@ -15,6 +15,8 @@
     <Compile Include="Migrations\20221015160447_Initial.Designer.cs" />
     <Compile Include="Migrations\20221015160801_cambioNombreRoomsPorCinemaRooms.cs" />
     <Compile Include="Migrations\20221015160801_cambioNombreRoomsPorCinemaRooms.Designer.cs" />
+    <Compile Include="Migrations\20221017012458_Empleo-Candidato.cs" />
+    <Compile Include="Migrations\20221017012458_Empleo-Candidato.Designer.cs" />
     <Compile Include="Migrations\ApplicationDBContextModelSnapshot.cs" />
   </ItemGroup>
 
